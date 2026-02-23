@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Viagem</title>
+</head>
+<body>
+    <h1>Calculadora de Viagem</h1>
+    <form id="tripCalculator">
+        <label for="distance">Distância (km):</label>
+        <input type="number" id="distance" name="distance" required><br><br>
+        <label for="fuelConsumption">Consumo de combustível (km/l):</label>
+        <input type="number" id="fuelConsumption" name="fuelConsumption" required><br><br>
+        <label for="fuelPrice">Preço do combustível (R$):</label>
+        <input type="number" step="0.01" id="fuelPrice" name="fuelPrice" required><br><br>
+        <button type="button" onclick="calculateTripCost()">Calcular Custo</button>
+    </form>
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateTripCost() {
+            const distance = document.getElementById('distance').value;
+            const fuelConsumption = document.getElementById('fuelConsumption').value;
+            const fuelPrice = document.getElementById('fuelPrice').value;
+
+            const totalCost = (distance / fuelConsumption) * fuelPrice;
+            document.getElementById('result').innerText = `Custo total da viagem: R$ ${totalCost.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
